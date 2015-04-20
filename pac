@@ -22,9 +22,9 @@ pac_help() {
 	printf "Pac is a script that aliases some pacman commands\n"
 	printf "to work similar to aptitude.\n"
 	printf "\tpac update\n"
-	printf "\tpac updgrade\n"
-	printf "\tpac search [queries]\n"
-	printf "\tpac install [targets]\n"
+	printf "\tpac upgrade\n"
+	printf "\tpac search / pac s [queries]\n"
+	printf "\tpac install / pac i [targets]\n"
 }
 
 case $1 in 
@@ -33,10 +33,16 @@ case $1 in
 	"upgrade")
 	pac_upgrade;;
 	"search")
-	qs=${@#*search};
+	qs=${@#search};
+	pac_search "$qs";;
+	"s")
+	qs=${@#s};
 	pac_search "$qs";;
 	"install")
-	targs=${@#*install};
+	targs=${@#install};
+	pac_install "$targs";;
+	"i")
+	targs=${@#i};
 	pac_install "$targs";;
 	*)
 	pac_help;;
