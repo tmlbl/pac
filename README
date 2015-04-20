@@ -1,0 +1,5 @@
+Aliases some common pacman commands for convenience:
+	pac update  -> pacman -Syy
+	pac upgrade -> pacman -Syyu
+	pac search  -> pacman -Ss
+	pac install -> pacman -S
